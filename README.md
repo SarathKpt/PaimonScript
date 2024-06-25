@@ -1,6 +1,6 @@
 # PaimonScript
 
-Your Genshin Impact companion script!
+my vertions of Your Genshin Impact companion script!
 
 ## Installation
 
@@ -17,11 +17,20 @@ Your Genshin Impact companion script!
 - Cook food with the click of a button
 - More in the future?
 
+## My Chnages
+
+- Fixed MapNot Movving issue (just turn on **CAPSLOCK**)
+- Added Auto Trigger Elemental burst & Elemental skill
+- Changed bunny Jump Key to **R**
 ## Contributing
 
 Pull requests are welcome, request a pull and I might pull your request!
 
 If it exists, `local.ini` will be used as the config file instead of `config.ini`.
+
+## Thanks
+
+[RealCyGuy](https://www.autohotkey.com/).
 
 ## License
 
