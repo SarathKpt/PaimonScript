@@ -54,7 +54,7 @@ if (CookEnabled == "true") {
     if (CookAdeptusTemptation) {
         #If WinActive("ahk_exe" Exe)
         Hotkey, $%CookAdeptusTemptation%, AdeptusTemptation
-    }
+    }	
     if (CookRicePudding) {
         #If WinActive("ahk_exe" Exe)
         Hotkey, $%CookRicePudding%, RicePudding
@@ -67,6 +67,12 @@ times = 0
 QuickInteract:
     Send, %InteractTriggeredKey%
     Sleep, 100f
+    minX := 1292
+	maxX := 1699
+	minY := 786
+	maxY := 818
+	Random, randX, %minX%, %maxX%
+    Random, randY, %minY%, %maxY%
     While GetKeyState(InteractTriggerKey,"P") {
         if (direction) {
             Send, {WheelDown}
@@ -82,31 +88,46 @@ QuickInteract:
         Sleep, 30
         Send, %InteractTriggeredKey%
         Sleep, 30
+		Random, randX, %minX%, %maxX%
+		Random, randY, %minY%, %maxY%
+        Click, %randX%, %randY%, Down ; Press down
+		Random, Delay, 50, 200 ; Random delay between 50ms and 200ms
+		Sleep, %Delay%
+		Click, Up ; Release the button
     }
     Return
 
 ; AARR Attack Sequence
 in_aarr = 0
 AARR:
-    Send, {Click Left}
+    Random, delay, 150, 180
+    CapsLockState := GetKeyState("CapsLock", "T")
+    if CapsLockState
+    {
+    Click, Down
     Sleep, 300
+    }
+    Send, {Click Left}
+    Sleep, 100
     step = 1
     if (in_aarr) Return
     in_aarr = 1
-    While GetKeyState("LButton","P") {
+    While GetKeyState("LButton","P")
+    {
+     Random, delay, 150, 180
         if (step = 0) {
             Send, {Click Left}
-            Sleep, 300
+            Sleep, delay
         }
         if (step = 1) {
             Send, {Click Left}
-            Sleep, 200
+            Sleep, delay
         }
         if (step = 2) {
-            Send, r
-            Sleep, 100
-            Send, r
-            Sleep, 200
+            Send, e
+            Sleep, delay
+            Send, q
+            Sleep, delay
             step = -1
         }
         step += 1
