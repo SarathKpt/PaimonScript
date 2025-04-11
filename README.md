@@ -1,6 +1,6 @@
 # PaimonScript
 
-my vertions of Your Genshin Impact companion script!
+my versions of Your Genshin Impact companion script!
 
 ## Installation
 
